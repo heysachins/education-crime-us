@@ -1,0 +1,341 @@
+<!-- This is the html file used for coursework 2 of F21DV. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Sachin's view on Education and Crime in the United States!"
+    />
+    <meta charset="utf-8" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <!--
+    These two colors are used for the theme for the website.
+
+    yellow - #FCAF3C
+    dark - #001122
+
+  -->
+
+  <body>
+    <div class="main">
+      <div class="main-text">
+        <h1>Education & Crime</h1>
+
+        <h1>US</h1>
+        <h1><br /></h1>
+      </div>
+
+      <svg
+        class="svg-hat"
+        fill="#FCAF3C"
+        viewBox="0 0 14 14"
+        role="img"
+        focusable="false"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        transform="matrix(-1, 0, 0, 1, 0, 0)"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="m 12.499079,12.25525 c 0.0968,0 0.188377,-0.0436 0.249339,-0.11884 0.06096,-0.0752 0.08473,-0.17385 0.06473,-0.26853 l -0.202146,-0.95662 c 0.115125,-0.11137 0.187491,-0.26686 0.187491,-0.43975 0,-0.182 -0.08106,-0.34343 -0.206876,-0.45558 l 0,-3.32202 -0.810333,0.50146 0,2.82056 c -0.125815,0.11215 -0.2069,0.27358 -0.2069,0.45558 0,0.17291 0.07239,0.32841 0.187515,0.43975 l -0.20217,0.95662 c -0.02,0.0947 0.0038,0.19335 0.06473,0.26853 0.06096,0.0752 0.152539,0.11884 0.249339,0.11884 l 0.625281,0 z M 12.773741,4.75539 7.5021019,1.49209 C 7.3477151,1.39699 7.1736728,1.34925 6.9996305,1.34925 c -0.1740423,0 -0.3482077,0.0477 -0.5016586,0.14284 l -5.271713,3.2633 C 1.0854931,4.84249 0.99999905,4.99633 0.99999905,5.1619 c 0,0.1656 0.085494,0.31949 0.22625985,0.40673 l 5.2716883,3.26333 c 0.153451,0.0952 0.3276163,0.14284 0.5016586,0.14284 0.1740423,0 0.3481092,-0.0477 0.5024714,-0.14284 L 12.773741,5.56863 c 0.140766,-0.0872 0.22626,-0.24113 0.22626,-0.40673 0,-0.16557 -0.08549,-0.31946 -0.22626,-0.40651 z M 6.9996059,9.78508 c -0.3283798,0 -0.6488777,-0.0912 -0.928242,-0.26411 l -3.0750017,-1.90368 0,3.27796 c 0,0.97016 1.7931578,1.7555 4.0032436,1.7555 2.2108742,0 4.0038842,-0.78536 4.0038842,-1.7555 l 0,-3.27796 -3.0748786,1.90368 C 7.6492472,9.69388 7.3279857,9.78508 6.9996059,9.78508 Z"
+          ></path>
+        </g>
+      </svg>
+
+      <svg
+        class="svg-handcuff"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#FCAF3C"
+        stroke="#FCAF3C"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            fill="#FCAF3C"
+            d="M147.406 20.03c-1.046-.002-2.094.05-3.156.157-4.238.433-8.576 1.774-12.656 4.125-.008.005-.023-.004-.03 0l-29.783 17.22c-7.858 4.534-12.662 12.15-13.874 19.78-1.212 7.63.62 15.126 4.22 21.47.11.197.227.397.343.593l-11.72 40.22c-1.79 1.224-3.467 2.613-5 4.124-5.196 5.117-9.01 11.83-9.844 19.56-.835 7.732 1.923 16.39 8.406 22.876L98.626 194.5c6.633 6.63 15.296 9.602 23.188 9.03 4.63-.333 8.935-1.755 12.78-3.905l7.095 6.688c-2.305 2.97-4.1 6.49-5.157 10.437l-1.624 6.03 18.063 4.845 1.624-6.063c1.06-3.953 2.712-5.37 5.125-6.437 1.205-.533 2.67-.867 4.28-.938 1.61-.07 3.366.126 5.063.594 3.393.938 6.375 2.963 7.968 5.157 1.594 2.195 2.284 4.266 1.282 8l-1.625 6.032 18.063 4.843 1.625-6.032c2.35-8.762.32-17.56-4.22-23.81-4.537-6.253-11.093-10.28-18.124-12.22-3.514-.97-7.204-1.417-10.905-1.25-1.67.075-3.34.28-5 .625l-10.344-9.75c2.06-3.75 3.42-7.944 3.75-12.438.586-7.917-2.42-16.574-9.093-23.25l-24.343-24.312c-4.677-4.68-10.516-7.357-16.313-8.156l6.157-21.095c.177.072.353.15.532.22 7.25 2.806 16.336 2.394 24.28-2.19l29.813-17.186c6.104-3.528 10.526-8.694 12.968-14.345l21.095 5.938c-.88 3.745-1.122 7.688-.5 11.687 1.194 7.683 6.06 15.35 14 19.938l29.813 17.218c3.8 2.195 7.813 3.47 11.78 3.97L255 140.78c-2.735 1.553-5.224 3.477-7.438 5.657-5.195 5.12-8.977 11.833-9.812 19.563-.835 7.73 1.89 16.39 8.375 22.875l4.22 4.22 13.218-13.22-4.22-4.22c-2.893-2.893-3.314-5.032-3.03-7.655.283-2.623 1.867-5.78 4.375-8.25 2.507-2.47 5.77-4.06 8.468-4.344.337-.035.68-.052 1-.062 2.252-.07 4.17.544 6.563 2.937v.032l4.217 4.188 13.188-13.188-4.188-4.218c-4.76-4.763-10.75-7.442-16.656-8.188l-3.25-18.28c4.92-2.895 8.87-7.066 11.658-11.845 3.74-6.412 5.516-14.137 4.03-21.936-1.484-7.8-6.637-15.374-14.812-20.094l-29.78-17.188c-3.93-2.27-8.145-3.506-12.282-3.812-4.137-.306-8.206.305-11.813 1.688-4.304 1.65-8.01 4.21-11.093 7.343l-29.093-8.186c-.762-3.026-1.937-5.915-3.47-8.594-3.684-6.445-9.47-11.856-16.968-14.47-2.81-.98-5.862-1.488-9-1.5zm-.187 18.564c1.063.03 2.05.252 3.03.593 2.614.912 5.225 3.153 6.906 6.094 1.682 2.942 2.312 6.365 1.78 9.126-.528 2.756-1.805 5.11-5.717 7.375-.01.006-.024-.004-.032 0l-29.782 17.19c-3.545 2.044-5.726 1.89-8.187.936-.648-.25-1.318-.603-1.97-1.03l.094-.345-.906-.25c-1.53-1.183-2.977-2.804-4.063-4.718-1.737-3.06-2.425-6.634-2-9.312.425-2.678 1.4-4.598 4.75-6.53v-.032l29.78-17.188h.032c2.02-1.166 3.688-1.72 5.188-1.875.375-.038.74-.04 1.094-.03zM226.5 62.22c.31-.02.618-.024.938 0 1.276.09 2.637.53 4.312 1.5v.03l29.813 17.188c4.04 2.332 5.294 4.686 5.812 7.406.518 2.72-.138 6.105-1.844 9.03-1.705 2.927-4.343 5.174-7 6.095-2.654.92-5.316 1.02-9.25-1.25L219.47 85c-3.544-2.048-4.47-3.985-4.876-6.594-.406-2.608.28-6.09 2.062-9.125 1.783-3.034 4.532-5.435 7.063-6.405.948-.364 1.85-.598 2.78-.656zM98.344 136.624c2.246-.065 4.14.575 6.53 2.97l24.345 24.31c3.296 3.3 3.89 5.896 3.686 8.657-.204 2.762-1.688 5.865-4.094 8.25-2.405 2.386-5.54 3.892-8.343 4.094-2.805.203-5.415-.415-8.626-3.625L87.53 156.97c-2.89-2.895-3.313-5.065-3.03-7.69.283-2.622 1.867-5.778 4.375-8.25 2.508-2.47 5.773-4.06 8.47-4.343.336-.035.678-.053 1-.062zM320 149.875l-62.094 62.094 48.844 48.843 26.938-26.938.343.344c.976-1.104 1.977-2.196 3.033-3.25 27.69-27.693 72.59-27.693 100.28 0 27.205 27.203 27.684 71.022 1.438 98.81-.004.014-.025.02-.03.033-1.03 2.514-1.372 4.965-1.28 7.343.18 4.757 2.415 9.505 5.936 13.063 3.52 3.556 8.17 5.75 12.875 5.936 3.614.144 7.41-.73 11.47-3.625 37.58-42.338 36.114-107.29-4.438-147.842-29.2-29.2-71.177-37.894-108.062-26.563l-5.375 1.656-3.97-3.968L320 149.875zm-11.75 40.688l18.313 18.312-13.22 13.22-18.312-18.314 13.22-13.218zm-186.53 48l-17.876 66.78 36.78 9.844-.124.47c1.445.292 2.9.612 4.344 1 37.828 10.135 60.26 49.015 50.125 86.843-9.962 37.175-47.675 59.485-84.876 50.625-2.695.375-4.986 1.326-7 2.594-4.03 2.533-7.024 6.796-8.344 11.624-1.32 4.828-.908 9.988 1.28 14.156 1.686 3.206 4.35 6.085 8.907 8.156 55.445 11.366 110.96-22.407 125.813-77.78.003-.01-.003-.022 0-.032 10.673-39.878-2.783-80.572-31.03-106.844l-4.126-3.844 1.437-5.437 9.5-35.44-84.81-22.717zm159.655 23.28c-6.083 33.48 3.736 69.08 29.72 95.063 36.204 36.205 91.507 41.554 133.06 15.625-5.342-2.01-10.13-5.214-14.06-9.186-5.135-5.186-8.89-11.79-10.47-19.156-26.67 13.713-60.22 9.406-82.563-12.938-14.735-14.735-21.633-34.33-20.687-53.625l-3 3-6.625 6.625-6.594-6.625-18.78-18.78zm-131.656 4.094l18.06 4.844-6.686 25.033-18.063-4.844 6.69-25.033zm-59.47 17.938c-32.02 11.48-57.93 37.8-67.438 73.28-13.252 49.46 9.77 100.012 53 123.033-.936-5.626-.568-11.36.907-16.75 1.923-7.036 5.783-13.63 11.374-18.688C62.872 428.512 49.82 397.34 58 366.812c5.395-20.134 18.935-35.924 36.125-44.75L90 320.97l-9.03-2.44 2.405-9.03 6.875-25.625z"
+          ></path>
+        </g>
+      </svg>
+
+      <svg
+        class="svg-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="top: -60px"
+      >
+        <path
+          fill="white"
+          fill-opacity="1"
+          d="M0,224L60,192C120,160,240,96,360,85.3C480,75,600,117,720,160C840,203,960,245,1080,229.3C1200,213,1320,139,1380,101.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="top: -70px"
+      >
+        <path
+          fill="#FCAF3C"
+          fill-opacity="1"
+          d="M0,224L60,192C120,160,240,96,360,85.3C480,75,600,117,720,160C840,203,960,245,1080,229.3C1200,213,1320,139,1380,101.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="top: -80px"
+      >
+        <path
+          fill-opacity="1"
+          d="M0,224L60,192C120,160,240,96,360,85.3C480,75,600,117,720,160C840,203,960,245,1080,229.3C1200,213,1320,139,1380,101.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-main"
+        id="visual"
+        preserveAspectRatio="none"
+        viewBox="0 0 1200 600"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+      >
+        <rect x="0" y="0" width="1200" height="600" fill="#001122"></rect>
+        <defs>
+          <linearGradient id="grad1_0" x1="50%" y1="0%" x2="100%" y2="100%">
+            <stop offset="10%" stop-color="#001122" stop-opacity="1"></stop>
+            <stop offset="90%" stop-color="#001122" stop-opacity="1"></stop>
+          </linearGradient>
+        </defs>
+        <defs>
+          <linearGradient id="grad2_0" x1="0%" y1="0%" x2="50%" y2="100%">
+            <stop offset="10%" stop-color="#001122" stop-opacity="1"></stop>
+            <stop offset="90%" stop-color="#001122" stop-opacity="1"></stop>
+          </linearGradient>
+        </defs>
+        <g transform="translate(1200, 0)">
+          <path
+            d="M0 330C-20.5 308.5 -40.9 287.1 -63.4 277.9C-85.9 268.6 -110.4 271.6 -124.5 258.6C-138.7 245.5 -142.5 216.4 -165.2 207.2C-187.9 197.9 -229.5 208.6 -247.8 197.6C-266.2 186.7 -261.3 154.3 -272.1 131C-282.9 107.8 -309.5 93.7 -321.7 73.4C-334 53.1 -332 26.6 -330 0L0 0Z"
+            fill="#FCAF3C"
+          ></path>
+        </g>
+        <g transform="translate(0, 600)">
+          <path
+            d="M0 -330C27.7 -333.7 55.4 -337.4 72.8 -318.8C90.1 -300.2 97 -259.2 120.6 -250.5C144.3 -241.7 184.6 -265.2 205.8 -258C226.9 -250.9 228.8 -213.1 231.4 -184.6C234.1 -156 237.4 -136.6 246.9 -118.9C256.3 -101.1 271.8 -85 286.6 -65.4C301.5 -45.9 315.7 -22.9 330 0L0 0Z"
+            fill="#FCAF3C"
+          ></path>
+        </g>
+      </svg>
+      <svg
+        class="svg-bottom"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 230"
+      >
+        <path
+          fill="white"
+          fill-opacity="1"
+          d="M0,160L80,149.3C160,139,320,117,480,133.3C640,149,800,203,960,208C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-bottom"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 220"
+      >
+        <path
+          fill="#FCAF3C"
+          fill-opacity="1"
+          d="M0,160L80,149.3C160,139,320,117,480,133.3C640,149,800,203,960,208C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-bottom"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 210"
+      >
+        <path
+          fill-opacity="1"
+          d="M0,160L80,149.3C160,139,320,117,480,133.3C640,149,800,203,960,208C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+    </div>
+
+    <div class="background">
+      <div class="top-section">
+        <p>
+          Education is one the key factor in reducing crime rates all over the
+          world
+        </p>
+
+        <p>
+          Let's examine the relationship between education and crime rates in
+          the United States of America using the data from the year 2021.
+        </p>
+      </div>
+
+      <div class="enclose-timeline">
+        <div class="timeline">
+          <div class="level">
+            <div class="container left">
+              <div class="content" id="educationDiv">
+                <h1>Educational Attainment By State (in %)</h1>
+                <svg
+                  id="educationalAttainmentMap"
+                  class="visual"
+                  style="border: solid"
+                ></svg>
+                <p>
+                  This map shows the percentage of high school graduates in each
+                  state.
+                </p>
+                <br />
+              </div>
+            </div>
+          </div>
+          <div class="level">
+            <div class="container right">
+              <div class="content" id="crimeDiv">
+                <h1>Crime Rates by State (per 1000 residents)</h1>
+                <svg id="crimeMap" class="visual" style="border: solid"></svg>
+                <p>
+                  Crime rates per 1000 people for each state is displayed on the
+                  above map.
+                </p>
+                <br />
+              </div>
+            </div>
+          </div>
+
+          <div class="container left same">
+            <div class="content">
+              <h1>The Role of Education in State Crime Prevention</h1>
+              <p>
+                The visualisation below demonstrates the impact of education on
+                crime rates. States having higher education percentages tend to
+                have lower crime rates. This showcases the positive impact of
+                education.
+              </p>
+              <br />
+            </div>
+          </div>
+          <div class="container right">
+            <div class="content" id="positiveBarChart">
+              <h1>A Look at State Trends</h1>
+              <svg class="visual" style="border: solid"></svg>
+              <p>
+                The states in the US are grouped together based on two education
+                level - 'High School Graduates' and 'Bachelors Graduates'. The
+                crime rates for these grouped states are displayed.
+              </p>
+              <br />
+            </div>
+          </div>
+          <div class="container left">
+            <div class="content">
+              <h1>Education Disparity & Crime</h1>
+              <p>
+                Although education is an important factor in reducing crime
+                rates, it does not guarantee a low crime rate.
+              </p>
+              <br />
+            </div>
+          </div>
+          <div class="container right">
+            <div class="content" id="educationAndCrimeScatterDiv">
+              <h1>Education is not a panacea</h1>
+              <svg id="scatterPlot" class="visual" style="border: solid"></svg>
+              <br />
+              <div class="dataSelectionLink">
+                <a id="clusterButton" class="dataSelect">Apply Clustering</a>
+              </div>
+              <p>
+                The states are clustered into two here. <br />Some states with
+                higher education levels still experience high crime rates. This
+                suggests that while education is an important factor, it is not
+                the only solution for reducing crime rates. Other factors, such
+                as socio-economic status and community infrastructure, also play
+                a significant role in reducing crime rates
+              </p>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position: relative; z-index: -1">
+      <svg
+        class="svg-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="top: -30px"
+      >
+        <path
+          fill="white"
+          fill-opacity="1"
+          d="M0,224L60,192C120,160,240,96,360,85.3C480,75,600,117,720,160C840,203,960,245,1080,229.3C1200,213,1320,139,1380,101.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="top: -40px"
+      >
+        <path
+          fill="#FCAF3C"
+          fill-opacity="1"
+          d="M0,224L60,192C120,160,240,96,360,85.3C480,75,600,117,720,160C840,203,960,245,1080,229.3C1200,213,1320,139,1380,101.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+
+      <svg
+        class="svg-top"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style="top: -50px"
+      >
+        <path
+          fill-opacity="1"
+          d="M0,224L60,192C120,160,240,96,360,85.3C480,75,600,117,720,160C840,203,960,245,1080,229.3C1200,213,1320,139,1380,101.3L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        ></path>
+      </svg>
+    </div>
+  </body>
+</html>
+
+<script src="index.js"></script>
